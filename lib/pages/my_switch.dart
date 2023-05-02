@@ -10,19 +10,36 @@ class MySwitch extends StatefulWidget {
 }
 
 class _MySwitchState extends State<MySwitch> {
+  
+  @override
+  void update(value) {
+    bool x = false;
+    setState(() {
+      x = value;
+    });
+  }
+
   static List<SwitchModel> main_tiles = [
     SwitchModel(
       'Bluetooth',
       'Not visible to other devices',
-      til: Icon(Icons.swipe),
+      til: Switch(
+        onChanged: (value) {},
+        value: false,
+      ),
     ),
     SwitchModel(
       'Cast',
       'Not connected',
     ),
     SwitchModel(
-        'NFC', 'Allow data exchange when the phone \ntouches another device',
-        til: Icon(Icons.swipe)),
+      'NFC',
+      'Allow data exchange when the phone \ntouches another device',
+      til: Switch(
+        onChanged: (value) {},
+        value: true,
+      ),
+    ),
     SwitchModel(
       'Android Beam',
       'Unavailable because NFC is turned off',
